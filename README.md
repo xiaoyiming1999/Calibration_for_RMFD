@@ -1,2 +1,2 @@
 # Calibration_for_RMFD
-Source code for the paper (under review) "Evaluating calibration of deep fault diagnostic models under distribution shift". The full code will be released after the paper is accepted
+Source code for the paper (under review) "Evaluating calibration of deep fault diagnostic models under distribution shift". The full code will be released after the paper is accepted. We select 7 calibration methods (covering all the four types of calibration methods mentioned in the paper) and a benchmark method for the comparative study according to their prevalence, scalability, and applicability. 
