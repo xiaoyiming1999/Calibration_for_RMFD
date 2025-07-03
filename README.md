@@ -43,8 +43,10 @@ The private datasets are the gearbox failure dataset organized by Dr. Yang Cheng
 --train_noise_SNR, list, SNR of training samples
 --val_noise_SNR, list, SNR of validation samples
 --test_noise_SNR, list, SNR of test samples (without OOD classes)
+```
 
 ### How to use
+
 - download datasets
 - Update root in PU.py, SEU.py and THU.py according to the path where you placed the dataset
 - use the main.py to test Vanilla, focal loss, confidence penalty loss, Mixup, label smooth, dropblock, and deep ensemble 
