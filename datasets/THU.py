@@ -31,12 +31,12 @@ def data_load(root, conditions, SNR, num_train_samples, num_val_samples, num_tes
             with TdmsFile.open(path) as tdms_file:
                 group_name = []
                 channel_name = []
-                for group in tdms_file.groups():  # TdmsFile可以按组名索引来访问TDMS文件中的组，使用groups()方法直接访问所有组
+                for group in tdms_file.groups():
                     group_name.append(group.name)
-                for channel in group.channels():  # TdmsGroup 可以通过通道名称来索引来访问这个组中的一个通道，使用 channels()方法直接访问所有通道
+                for channel in group.channels():
                     channel_name.append(channel.name)
-                channel = tdms_file[group_name[0]][channel_name[1]]  # 根据索引读取通道
-                all_channel_data = channel[:]  # 将此通道中所有的数据作为numpy数组获取
+                channel = tdms_file[group_name[0]][channel_name[1]]
+                all_channel_data = channel[:]
                 data_temp = np.array(all_channel_data)
                 data_temp = np.expand_dims(data_temp, axis=1)
 
