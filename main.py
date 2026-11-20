@@ -14,6 +14,16 @@ from utils.train_mixup import TrainMixupUtils
 
 warnings.filterwarnings('ignore')
 
+def str2bool(value):
+    if isinstance(value, bool):
+        return value
+    lowered = value.strip().lower()
+    if lowered in ('true', 't', 'yes', 'y', '1'):
+        return True
+    if lowered in ('false', 'f', 'no', 'n', '0'):
+        return False
+    raise argparse.ArgumentTypeError('expected a boolean value, got %r' % value)
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Train')
 
@@ -26,7 +36,7 @@ def parse_args():
                         choices=['Vanilla', 'label_smooth', 'focal_loss', 'confidence', 'MixUp', 'dropblock',
                                  'ensemble', 'CutMix'])
     parser.add_argument('--num_MC_samplings', type=int, default=16)
-    parser.add_argument('--use_temperature', type=bool, default=True)
+    parser.add_argument('--use_temperature', type=str2bool, default=True)
 
     # data parameters
     parser.add_argument('--data_name', type=str, default='PU', choices=['PU', 'SEU', 'THU'])
